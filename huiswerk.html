@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Interactieve JavaScript Functie</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<h1>Begroeting op basis van dagdeel </h1>
+
+	<label for="name">Voer uw naam in:</label>
+	<input type="text" id="name" name="name">
+
+	<button onclick="greet()">Begroet mij!</button>
+
+	<p id="greeting"></p>
+
+	<script>
+		function greet() {
+			const nameInput = document.getElementById("name");
+			const greetingText = document.getElementById("greeting");
+			const now = new Date();
+			const hour = now.getHours();
+
+			if (hour < 6) {
+				greetingText.innerHTML = "Goedenacht " + nameInput.value + "!";
+			} else if (hour < 12) {
+				greetingText.innerHTML = "Goedemorgen " + nameInput.value + "!";
+			} else if (hour < 18) {
+				greetingText.innerHTML = "Goedemiddag " + nameInput.value + "!";
+			} else {
+				greetingText.innerHTML = "Goedenavond " + nameInput.value + "!";
+			}
+		}
+	</script>
+</body>
+</html>
